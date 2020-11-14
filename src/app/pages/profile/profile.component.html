@@ -1,0 +1,29 @@
+<div class="container pd-30">
+  <div class="row">
+    <div class="col-6 offset-3">
+      <div class="card" *ngIf="authService.user as user">
+        <img class="card-img-top img-thumbnail rounded-circle card"
+             src="{{ user.photoURL ? user.photoURL : defaultImagePath }}"
+             alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">
+            <b><i class="fa fa-envelope"></i> Email: </b>
+            {{ user.email }}
+          </h5>
+          <hr>
+          <p class="card-text">
+            <b><i class="fa fa-user"></i> User ID: </b> {{ user.uid }}
+          </p>
+          <p>
+            <b><i class="fa fa-check-circle"></i> Is email verified: </b> {{ user.emailVerified }}
+          </p>
+          <button (click)="logout()"
+                  type="button"
+                  class="btn btn-outline-danger pull-right">
+            <i class="fa fa-sign-out"></i> Logout
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
